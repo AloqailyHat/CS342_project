@@ -12,14 +12,19 @@ public class Geometric extends JFrame  {
 
    // this.setSize(250,500);
     this.setLocation(500,500);
+    this.setSize(300,200);
     this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setTitle("GUI Forms");
+    this.setTitle("Geometric App");
     
     //creating the buttons
     b1 = new JButton("Create Rectangle");
-    b2 = new JButton("Create Circle");
+    b1.setFocusable(false);  // will remove the border around the text of the button
+    b2 = new JButton("Create Circle");  
+    b2.setFocusable(false);
     b3 = new JButton("Create Square");
+    b3.setFocusable(false);
     b4 = new JButton("Display Forms");
+    b4.setFocusable(false);
 
    //organizing the buttons
    JPanel org = (JPanel)this.getContentPane();
@@ -32,7 +37,7 @@ public class Geometric extends JFrame  {
 
 
     this.setVisible(true);
-    this.pack();
+    //this.pack();
    }
  
 
