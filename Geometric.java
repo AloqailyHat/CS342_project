@@ -1,49 +1,133 @@
 
-import javax.swing.*;
+
+/*
+ main graphical user intergace 
+contains 3 Buttons to create a shape and one button to dispaly them 
+
+ */
+
 import java.awt.*;
-import java.awt.event.*;
-
-public class Geometric extends JFrame  {
-
-    //defining the buttons that will contain the operations of the forms
-    private JButton b1, b2, b3, b4 ;
-   
-   public Geometric(){
-
-   // this.setSize(250,500);
-    this.setLocation(500,500);
-    this.setSize(300,200);
-    this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-    this.setTitle("Geometric App");
-    
-    //creating the buttons
-    b1 = new JButton("Create Rectangle");
-    b1.setFocusable(false);  // will remove the border around the text of the button
-    b2 = new JButton("Create Circle");  
-    b2.setFocusable(false);
-    b3 = new JButton("Create Square");
-    b3.setFocusable(false);
-    b4 = new JButton("Display Forms");
-    b4.setFocusable(false);
-
-   //organizing the buttons
-   JPanel org = (JPanel)this.getContentPane();
-   org.setLayout(new GridLayout(4,1));
-   //add the buttons to the panels
-   org.add(b1);
-   org.add(b2);
-   org.add(b3);
-   org.add(b4);
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 
-    this.setVisible(true);
-    //this.pack();
-   }
+public class Geometric extends ArrayForm{
+
+ JButton Rectangle,circle,square,forms;
+ JFrame mainFrame;
  
+ public Geometric()  {
+    
+    mainFrame= new JFrame("GUI Forms");
+    mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    mainFrame.setLocation(500, 250);
+    mainFrame.setSize(550,550);
+
+    Rectangle = new JButton("Creat Rectangle");
+    Rectangle.setFont(font);
+    Rectangle.setFocusable(false);
+    circle = new JButton("Creat Circle");
+    circle.setFont(font);
+    circle.setFocusable(false);
+    square = new JButton("Creat Square");
+    square.setFont(font);
+    square.setFocusable(false);
+    forms = new JButton("Display Forms");
+    forms.setFont(font);
+    forms.setFocusable(false);
+
+
+    JPanel mainPanel=new JPanel();
+    mainPanel.setLayout(new GridLayout(4,1));
+
+    mainPanel.add(Rectangle);
+    mainPanel.add(circle);
+    mainPanel.add(square);
+    mainPanel.add(forms);
+    
+    mainFrame.add(mainPanel, BorderLayout.CENTER);
+
+
+    Rectangle.addActionListener(new CreatRectangle());
+    circle.addActionListener(new Creatcircle());
+    square.addActionListener(new Creatsquare());
+    forms.addActionListener(new Creatforms());
+    
+    mainFrame.setVisible(true);
+}
+
+public class CreatRectangle implements ActionListener{
+    public void actionPerformed(ActionEvent ae) {
+        try{       
+        mainFrame.dispose();
+              Rectangle dd = new Rectangle();
+        }
+         catch(ClassCastException e){
+            System.out.println("Class not found" + e.getMessage());
+                }
+    }
+}
+
+public class Creatsquare implements ActionListener{
+    public void actionPerformed(ActionEvent ae) {
+        try{   
+        mainFrame.dispose();
+        Square Sq = new Square();
+        }
+         catch(ClassCastException e){
+            System.out.println("Class not found" + e.getMessage());
+                }
+    }
+}
+
+
+public class Creatcircle implements ActionListener{
+    public void actionPerformed(ActionEvent ae) {
+       try{
+        mainFrame.dispose();
+         Circle c = new Circle();
+       }
+       catch(ClassCastException e){
+            System.out.println("Class not found" + e.getMessage());
+                }
+    }}
+
+
+public class Creatforms implements ActionListener{
+    public void actionPerformed(ActionEvent ae) {
+             try{
+             mainFrame.dispose();
+             new displayForms();
+             }
+             catch(ClassCastException e){
+            System.out.println("Class not found" + e.getMessage());
+                }
+    }
+}
+
+
 
     public static void main(String[] args) {
-        Geometric proj= new Geometric();
+        Geometric dd = new Geometric();
     }
 
-
 }
+
+
+
+
+
+
+
+
+
+
+
+   
+
+    
+
+
+
+
